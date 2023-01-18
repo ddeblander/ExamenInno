@@ -8,4 +8,5 @@
     <string name="show_result">Résultat</string>
     <string name="time">Temps</string>
     <string name="errorCoureur">veuillez cliquer sur un coureur avant</string>
+    <string name="timerecorded">Temps enregistré</string>
 </resources>

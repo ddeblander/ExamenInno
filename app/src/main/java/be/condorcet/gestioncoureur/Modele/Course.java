@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Course implements Parcelable
+public class Course
 {
     private List<Coureur> listCoureurActif;
     private List<Coureur> listCoureurResult;
@@ -36,8 +36,17 @@ public class Course implements Parcelable
     public List<Coureur> getListCoureurActif() {
         return listCoureurActif;
     }
-    public List<Coureur> getListCoureurResult() {
+
+    public void setListCoureurActif(List<Coureur> lc) {
+        this.listCoureurActif=lc;
+    }
+    public List<Coureur> getListCoureurResult()
+    {
         return listCoureurResult;
+    }
+
+    public void setListCoureurResult(List<Coureur> lc) {
+        this.listCoureurResult=lc;
     }
 
     public void insertListCoureurResult(Coureur c)
@@ -48,24 +57,5 @@ public class Course implements Parcelable
 
 
 
-    @Override
-    public int describeContents() {return 0;}
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(this.listCoureurActif);
-        dest.writeList(this.listCoureurResult);
     }
 
-    public static final Creator<Coureur> CREATOR = new Creator<Coureur>() {
-        @Override
-        public Coureur createFromParcel(Parcel source) {
-            return new Coureur(source);
-        }
-
-        @Override
-        public Coureur[] newArray(int size) {
-            return new Coureur[size];
-        }
-    };
-}

@@ -2,6 +2,7 @@ package be.condorcet.gestioncoureur;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity
         public static final String PACT = "Coureur actuel";
 
         public static final String LISTCOUREURS = "liste Coureurs";
+        public static final String LISTCOUREURSRES = "liste Coureurs rés";
 
         @Override
         protected void onCreate(Bundle savedInstanceState)
@@ -48,7 +50,9 @@ public class MainActivity extends AppCompatActivity
             {
                 cact =(Coureur) savedInstanceState.getParcelable(PACT);
 
-                ArrayList<Coureur> listCoureurs= savedInstanceState.getParcelableArrayList(LISTCOUREURS);
+                //ArrayList<Coureur> listCoureurs= savedInstanceState.getParcelableArrayList(LISTCOUREURS);
+                ArrayList<Coureur> listCoureursRes= savedInstanceState.getParcelableArrayList(LISTCOUREURSRES);
+                course.setListCoureurResult(listCoureursRes);
             }
             nom=findViewById(R.id.nom);
             prenom=findViewById(R.id.prenom);
@@ -57,7 +61,6 @@ public class MainActivity extends AppCompatActivity
 
             select=findViewById(R.id.selectButton);
             record=findViewById(R.id.idSaveButton);
-            record.setEnabled(false);
             result=findViewById(R.id.ShowResButton);
             result.setEnabled(false);
 
@@ -115,13 +118,13 @@ public class MainActivity extends AppCompatActivity
         }
         public void clickRecord(View v)
         {
-            course.getListCoureurActif().remove(cact);
             cact.setTime(Integer.parseInt(time.getText().toString()));
             course.insertListCoureurResult(cact);
             initText();
             record.setEnabled(false);
             result.setEnabled(true);
             loadList();
+            Toast.makeText(getApplicationContext(), R.string.timerecorded,Toast.LENGTH_SHORT).show();
             if(course.getListCoureurActif().isEmpty())
             {
                 select.setEnabled(false);
@@ -130,7 +133,10 @@ public class MainActivity extends AppCompatActivity
         }
         public void clickResult(View v)
         {
-
+            Intent i = new Intent(this,Affichage.class);
+            ArrayList<Coureur> liste= new ArrayList<>(course.getListCoureurResult());
+            i.putParcelableArrayListExtra(LISTCOUREURSRES,liste);
+            startActivity(i);
         }
 
         private void initText()

@@ -7,4 +7,5 @@
     <string name="show_result">Show Result</string>
     <string name="time">Time</string>
     <string name="errorCoureur">please select a racer before select</string>
+    <string name="timerecorded">Time Recorded</string>
 </resources>

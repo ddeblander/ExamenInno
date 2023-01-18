@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Manage Coureur</string>
+    <string name="first_name">First Name</string>
+    <string name="name">Name</string>
+    <string name="select">Select</string>
+    <string name="record">Record</string>
+    <string name="show_result">Show Result</string>
+    <string name="time">Time</string>
+    <string name="errorCoureur">please select a racer before select</string>
+</resources>

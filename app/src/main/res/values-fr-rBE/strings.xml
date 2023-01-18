@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GestionCoureur</string>
+    <string name="first_name">Prénom</string>
+    <string name="name">Nom</string>
+    <string name="select">selection</string>
+    <string name="record">Sauvegarde</string>
+    <string name="show_result">Résultat</string>
+    <string name="time">Temps</string>
+    <string name="errorCoureur">veuillez cliquer sur un coureur avant</string>
+</resources>
